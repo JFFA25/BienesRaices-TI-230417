@@ -1,7 +1,6 @@
-import { DataTypes } from "sequelize"
-import bcrypt from 'bcrypt'
-import db from '../config/db.js'
-
+import { DataTypes } from "sequelize";
+import bcrypt from 'bcrypt';
+import db from '../config/db.js';
 
 const Usuario = db.define('usuarios', {
     nombre: {
@@ -10,20 +9,29 @@ const Usuario = db.define('usuarios', {
     },
     email: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
     password: {
         type: DataTypes.STRING,
         allowNull: false
     },
+    fecha: { // Campo con valor por defecto
+        type: DataTypes.DATEONLY, // Guarda solo la fecha (formato AAAA-MM-DD)
+        allowNull: false,
+        defaultValue: DataTypes.NOW // Establece la fecha actual por defecto
+    },
     token: {
         type: DataTypes.STRING
     },
-    confirmado: DataTypes.BOOLEAN
+    confirmado: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+    }
 }, {
     hooks: {
         beforeCreate: async function (usuario) {
-            const salt = await bcrypt.genSalt(10)
+            const salt = await bcrypt.genSalt(10);
             usuario.password = await bcrypt.hash(usuario.password, salt);
         }
     },
@@ -34,12 +42,11 @@ const Usuario = db.define('usuarios', {
             }
         }
     }
-})
+});
 
-//Metodos personalizados
-
+// Métodos personalizados
 Usuario.prototype.verificarPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
-}
+};
 
-export default Usuario
+export default Usuario;
