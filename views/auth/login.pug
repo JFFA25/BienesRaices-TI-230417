@@ -2,9 +2,9 @@ extends ../layout/index
 
 block contenido
     div.py-10
-        h1.text-4xl.my-10.font-extrabold.text-center Bienes 
-            span.font-normal Raíces  
-        h2.text-center.text-2xl.font-extrabold= pagina
+        h1.text-4xl.my-10.font-extrabold.text-center.text-prussian-blue Bienes 
+            span.font-normal.text-munsell-blue Raíces  
+        h2.text-center.text-2xl.font-extrabold.text-light-blue= pagina
 
         if errores 
             div(class="max-w-md mx-auto my-10")
@@ -25,5 +25,4 @@ block contenido
                         a.text-gray-500.text-xs(href="/auth/registro") ¿No tienes cuenta? Crea una
                         a.text-gray-500.text-xs(href="/auth/olvide-password") Olvide mi Password
 
-
-                    input(class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 cursor-pointer" type="submit" value="Inicar Sesión")    
+                    input(class="w-full bg-prussian-blue hover:bg-munsell-blue text-white font-bold py-3 cursor-pointer rounded-md" type="submit" value="Iniciar Sesión")
