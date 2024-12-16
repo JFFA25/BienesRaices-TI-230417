@@ -1,5 +1,5 @@
 (function () {
-
+//Finalizando cambios
     const lat = document.querySelector('#lat').value || 20.2738500;
     const lng = document.querySelector('#lng').value || -97.9603964;
     const mapa = L.map('mapa').setView([lat, lng], 16);
