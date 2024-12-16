@@ -15,3 +15,4 @@ const propiedades = async (req, res) => {
 export {
     propiedades
 }
+//Finalizando Cambios para la practica02
