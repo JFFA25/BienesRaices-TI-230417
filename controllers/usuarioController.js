@@ -89,6 +89,7 @@ const registrar = async (req, res) => {
 
     //validación
     await check('nombre').notEmpty().withMessage('El nombre no puede ir vacio').run(req)
+    await check('fecha').isISO8601().withMessage('Tienes que ser mayor de edad').run(req)
     await check('email').isEmail().withMessage('Eso no parece un email').run(req)
     await check('password').isLength({ min: 6 }).withMessage('El password debe ser de almenos 6 caracteres').run(req)
     await check('repetir_password').equals(req.body.password).withMessage('Los password no coinciden').run(req)
