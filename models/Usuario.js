@@ -9,24 +9,27 @@ const Usuario = db.define('usuarios', {
     },
     email: {
         type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
+        allowNull: false
     },
     password: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    fecha: { // Campo con valor por defecto
-        type: DataTypes.DATEONLY, // Guarda solo la fecha (formato AAAA-MM-DD)
-        allowNull: false,
-        defaultValue: DataTypes.NOW // Establece la fecha actual por defecto
-    },
     token: {
         type: DataTypes.STRING
     },
-    confirmado: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false
+    confirmado: DataTypes.BOOLEAN,
+    foto: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    alias: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    fechaDeNacimiento: {
+        type: DataTypes.DATEONLY,
+        allowNull: true
     }
 }, {
     hooks: {
@@ -45,6 +48,7 @@ const Usuario = db.define('usuarios', {
 });
 
 // Métodos personalizados
+
 Usuario.prototype.verificarPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
 };
