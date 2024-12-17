@@ -1,11 +1,16 @@
-header.bg-prussian-blue.p-4
+header.bg-babyblue-100.p-4 
     .container.mx-auto.flex.justify-between.items-center 
-        h1.text-2xl.text-white.font-extrabold.text-center Bienes 
-            span.font-normal.text-munsell-blue Raíces
+        h1.text-2xl.text-black.font-foco.text-center Bienes 
+            span.font-foco.text-black Raíces
 
-        nav(class="my-5 text-sm md:flex md:items-center md:gap-3 font-bold text-white hidden") 
-            a(href="/mis-propiedades") Mis propiedades 
-            a(href="") Mi perfil
+        nav(class="my-5 text-sm md:flex md:items-center md:gap-3 font-rubi text-white hidden") 
+            a(href="javascript:history.back()" class="bg-darkblue hover:bg-babyblue text-white font-rubi uppercase py-2 px-6 rounded-lg") Regresar
+            a(href="/" class="bg-darkblue hover:bg-babyblue rounded-lg text-white uppercase font-rubi p-2 cursor-pointer text-sm") Inicio
+            a(href="/mis-propiedades" class="bg-darkblue hover:bg-babyblue rounded-lg text-white uppercase font-rubi p-2 cursor-pointer text-sm") Mis propiedades 
+            if usuario
+               a(href=`/usuario/${usuario.id}` class="bg-darkblue hover:bg-babyblue rounded-lg text-white uppercase font-rubi p-2 cursor-pointer text-sm") Mi perfil
+            else
+                a(href="/auth/login" class="bg-babyblue hover:bg-darkblue rounded-lg text-white uppercase font-rubi p-2 cursor-pointer text-sm") Iniciar Sesión
             form(action="/auth/cerrar-sesion" method="POST")  
                 input(type="hidden" name="_csrf" value= csrfToken)
-                input(type="submit" class="bg-munsell-blue hover:bg-prussian-blue py-2 px-10 rounded-lg" value="Cerrar Sesión")
+                input(class="w-full transition ease-in-out delay-150 bg-darkblue hover:-translate-y-1 hover:scale-105 hover:bg-babyblue duration-300 text-white font-rubi py-2 rounded-lg cursor-pointer transition duration-300" type="submit" value="Cerrar Sesión")

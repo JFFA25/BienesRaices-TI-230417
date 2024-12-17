@@ -37,6 +37,7 @@ const eliminarDatos = async () => {
         exit(1)
     }
 }
+//-------------------------
 
 if (process.argv[2] === "-i") {
     importarDatos();
