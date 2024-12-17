@@ -106,7 +106,7 @@ const emailOlvidePassword = async (datos) => {
                 <p style="font-size: 16px; color: #040506;"> Sigue el siguiente enlace para crear una contraseña nueva </p>
     
                 <p style="text-align: center;">
-                    <a href="${process.env.BACKEND_URL}:${process.env.PORT ?? 3000}/auth/password/${token}" 
+                    <a href="${process.env.BACKEND_URL}:${process.env.PORT ?? 3000}/auth/reset-password/${token}" 
                       style="font-size: 18px; color: #FFFFFF; background-color: #0B6C95; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
                       Restablecer Contraseña
                     </a>

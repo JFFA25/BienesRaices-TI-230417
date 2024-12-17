@@ -7,7 +7,6 @@ router.get('/login', formularioLogin);
 router.post('/login', autenticar);
 
 //cerrar sesión 
-
 router.post('/cerrar-sesion', cerrarSesion)
 
 router.get('/registro', formularioRegistro);
@@ -19,9 +18,7 @@ router.get('/olvide-password', formularioOlvidePassword);
 router.post('/olvide-password', resetPassword);
 
 //Almacena el nuevo password
-router.get('/olvide-password/:token', comprobarToken);
-router.post('/olvide-password/:token', nuevoPassword);
-
-
+router.get('/reset-password/:token', comprobarToken);
+router.post('/reset-password/:token', nuevoPassword);
 
 export default router
